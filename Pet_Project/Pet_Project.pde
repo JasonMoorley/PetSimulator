@@ -6,10 +6,10 @@ void setup(){
   size(400,400);
 }
 
-println(Pet1.name);
+
 
 void draw(){
-  
+  println(Pet1.name);
   
   
 }
