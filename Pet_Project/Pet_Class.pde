@@ -9,6 +9,7 @@ class Pet{
   int hunger; //between 0 and 100, 100 being not hungry at all
   int temperature; //Between 0 and 100, each pet has an ideal temperature
   int humidity;// Between 0 and 100, each pet has an ideal humidity
+  boolean alive = true;
   
   Pet(String s, String n, String g, color f, color c, int a, int h, int hun, int t, int hum){
     this.species = s;
@@ -25,8 +26,27 @@ class Pet{
   
   
   void Feed(){
-    if (this.hunger < 70){
+    if (this.hunger == 0) {
+      this.alive = false;
+    }
+    else if (this.hunger < 60){
      this.hunger += 20;
+    }
+    else if (this.hunger >= 60){
+      this.hunger += 10;
+    }
+  }
+  
+  void update(){
+    if (this.alive == true) {
+      this.hunger -= 0.3;
+      this.happiness -= 0.3;
+    }
+    else {
+      this.hunger = 0;
+      this.humidity = 0;
+      this.happiness = 0;
+      this.temperature = 0;
     }
   }
   
