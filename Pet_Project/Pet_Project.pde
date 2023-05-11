@@ -10,6 +10,6 @@ void setup(){
 
 void draw(){
   println(Pet1.name);
-  
+  Pet1.drawMe(0,0);
   
 }

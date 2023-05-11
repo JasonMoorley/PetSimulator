@@ -29,4 +29,12 @@ class Pet{
      this.hunger += 20;
     }
   }
+  
+  void drawMe(float x, float y){ //top left x and y coordinates of the pet drawing
+    noStroke();
+    fill(furColour);
+    rect(x+160,y+200,80,200);
+    circle(200,175,125);
+    
+  }
 }
