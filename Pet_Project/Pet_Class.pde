@@ -56,6 +56,9 @@ class Pet{
       fill(0);
       circle(x+175,y+175,10);
       circle(x+225,y+175,10);
+      
+      //name
+      text(this.name,x,y+120);
     }
     else if(this.species.equals("dog")){
       noStroke();
@@ -81,7 +84,10 @@ class Pet{
       //eyes
       fill(0);
       circle(x+175,y+175,10);
-      circle(x+225,y+175,10);      
+      circle(x+225,y+175,10);     
+      
+      //name
+      text(this.name,x,y+120);
     }
   }
 }
