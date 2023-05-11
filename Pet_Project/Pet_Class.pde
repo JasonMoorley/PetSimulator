@@ -31,10 +31,57 @@ class Pet{
   }
   
   void drawMe(float x, float y){ //top left x and y coordinates of the pet drawing
-    noStroke();
-    fill(furColour);
-    rect(x+160,y+200,80,200);
-    circle(200,175,125);
-    
+    if (this.species.equals("cat")){
+      noStroke();
+      
+      //body
+      fill(furColour);
+      rect(x+160,y+200,80,200);
+      
+      //collar
+      fill(collarColour);
+      rect(x+160,y+200,80,40); 
+      fill(250,250,0);
+      circle(x+200,y+240,10); 
+      
+      //head
+      fill(furColour);
+      circle(x+200,y+175,125); 
+      
+      //ears
+      triangle(x+115,y+115,x+200,y+150,x+150,y+200);
+      triangle(x+285,y+115,x+200,y+150,x+250,y+200);
+      
+      //eyes
+      fill(0);
+      circle(x+175,y+175,10);
+      circle(x+225,y+175,10);
+    }
+    else if(this.species.equals("dog")){
+      noStroke();
+      
+      //body
+      fill(furColour);
+      rect(x+160,y+200,80,200);
+      
+      //collar
+      fill(collarColour);
+      rect(x+160,y+200,80,40);
+      fill(250,250,0);
+      circle(x+200,y+240,10);
+      
+      //head
+      fill(furColour);
+      circle(x+200,y+175,125);
+      
+      //ears
+      ellipse(x+145,y+170,50,100);
+      ellipse(x+255,y+170,50,100);
+      
+      //eyes
+      fill(0);
+      circle(x+175,y+175,10);
+      circle(x+225,y+175,10);      
+    }
   }
 }
