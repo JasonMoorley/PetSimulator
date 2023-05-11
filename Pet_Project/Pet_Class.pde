@@ -39,14 +39,12 @@ class Pet{
   
   void update(){
     if (this.alive == true) {
-      this.hunger -= 0.3;
-      this.happiness -= 0.3;
+      this.hunger -= 0.1;
+      this.happiness -= 0.1;
     }
     else {
       this.hunger = 0;
-      this.humidity = 0;
       this.happiness = 0;
-      this.temperature = 0;
     }
   }
   
@@ -110,6 +108,7 @@ class Pet{
       text(this.name,x,y+120);
     }
   }
+  
   void drawStats(float x,float y){
     textSize(10);
     fill(0,0,0);
@@ -120,9 +119,9 @@ class Pet{
     
     textSize(10);
     fill(0,0,0);
-    text("Warmth", x, y + 200);
+    text("Happiness", x, y + 200);
     rect(x, y + 210, 104, 14);
-    float test = this.temperature/100.0;
+    float test = this.happiness/100.0;
     fill( test*255.0, -1020*test*(test-1), (1-test)*255.0);
     rect(x+2,y + 212, 100, 10);
   }

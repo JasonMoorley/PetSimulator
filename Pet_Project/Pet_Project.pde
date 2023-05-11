@@ -6,6 +6,7 @@ Pet Pet4 = new Pet("dog", "Olivia", "Female", color(100,65,50), color(200,200,0)
 
 void setup(){
   size(600,600);
+  frameRate(10);
 }
 
 
@@ -20,4 +21,5 @@ void draw(){
   Pet1.drawStats(15,-100);
   rect(0,299,600,2);
   rect(299,0,2,600);
+  Pet1.update();
 }
