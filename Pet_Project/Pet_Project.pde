@@ -17,7 +17,7 @@ void draw(){
   Pet3.drawMe(15,200);
   Pet4.drawMe(315, 200);
   
-  
+  Pet1.drawStats(15,-100);
   rect(0,299,600,2);
   rect(299,0,2,600);
 }

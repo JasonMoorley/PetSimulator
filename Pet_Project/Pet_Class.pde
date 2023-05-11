@@ -110,4 +110,20 @@ class Pet{
       text(this.name,x,y+120);
     }
   }
+  void drawStats(float x,float y){
+    textSize(10);
+    fill(0,0,0);
+    text("Hunger", x, y + 160);
+    rect(x, y + 170, 104, 14);
+    fill( (1-this.hunger/100.0)*255.0, this.hunger/100.0*255.0 ,0);
+    rect(x+2,y+172,this.hunger,10);
+    
+    textSize(10);
+    fill(0,0,0);
+    text("Warmth", x, y + 200);
+    rect(x, y + 210, 104, 14);
+    float test = this.temperature/100.0;
+    fill( test*255.0, -1020*test*(test-1), (1-test)*255.0);
+    rect(x+2,y + 212, 100, 10);
+  }
 }
