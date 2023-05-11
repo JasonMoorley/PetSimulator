@@ -7,11 +7,10 @@ class Pet{
   int age;
   int happiness; //between 0 and 100, 100 being happiest
   int hunger; //between 0 and 100, 100 being not hungry at all
-  int temperature; //Between 0 and 100, each pet has an ideal temperature
-  int humidity;// Between 0 and 100, each pet has an ideal humidity
+
   boolean alive = true;
   
-  Pet(String s, String n, String g, color f, color c, int a, int h, int hun, int t, int hum){
+  Pet(String s, String n, String g, color f, color c, int a, int h, int hun){
     this.species = s;
     this.name = n;
     this.gender = g;
@@ -20,8 +19,7 @@ class Pet{
     this.age = a;
     this.happiness = h;
     this.hunger = hun;
-    this.temperature = t;
-    this.humidity = hum;
+
   }
   
   
