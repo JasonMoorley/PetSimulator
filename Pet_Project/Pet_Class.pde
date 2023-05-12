@@ -34,10 +34,10 @@ class Pet{
   }
   
   void Treat(){
-    if (this.hunger < 90){
+    if (this.hunger <= 90){
       this.hunger += 5;
     }
-    if (this.happiness < 90){
+    if (this.happiness <= 85){
       this.happiness += 15;
     }
   }
