@@ -25,7 +25,6 @@ class Pet{
   
   
   void Feed(){
-    
     if (this.hunger < 60){
      this.hunger += 20;
     }
@@ -121,9 +120,19 @@ class Pet{
       ellipse(x+255,y+170,50,100);
       
       //eyes
-      fill(0);
-      circle(x+175,y+175,10);
-      circle(x+225,y+175,10);     
+      if (this.alive == true) {
+        fill(0);
+        circle(x+175,y+175,10);
+        circle(x+225,y+175,10);
+      }
+      else {
+        stroke(225);
+        line(x+175,y+175,x+185,y+165);
+        line(x+185,y+175,x+175,y+165);
+        line(x+225,y+175,x+235,y+165);
+        line(x+235,y+175,x+225,y+165);
+      }
+           
       
       //name
       text(this.name,x,y+120);
