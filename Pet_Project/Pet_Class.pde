@@ -24,18 +24,19 @@ class Pet{
   
   
   void Feed(){
-    if (this.hunger == 0) {
-      this.alive = false;
-    }
-    else if (this.hunger < 60){
+    
+    if (this.hunger < 60){
      this.hunger += 20;
     }
-    else if (this.hunger >= 60){
+    else if ((this.hunger >= 60)&&(this.hunger <= 90)){
       this.hunger += 10;
     }
   }
   
   void update(){
+    if (this.hunger == 0) {
+      this.alive = false;
+    }
     if (this.alive == true) {
       this.hunger -= 0.1;
       this.happiness -= 0.1;
