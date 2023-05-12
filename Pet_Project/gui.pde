@@ -15,11 +15,11 @@
  */
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:314242:
-  println("button1 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Feed();
 } //_CODE_:button1:314242:
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:819577:
-  println("button2 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Treat();
 } //_CODE_:button2:819577:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:990180:
@@ -31,11 +31,11 @@ public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:5739
 } //_CODE_:button4:573903:
 
 public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:661384:
-  println("button5 - GButton >> GEvent." + event + " @ " + millis());
+  Pet2.Feed();
 } //_CODE_:button5:661384:
 
 public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:986537:
-  println("button6 - GButton >> GEvent." + event + " @ " + millis());
+  Pet2.Treat();
 } //_CODE_:button6:986537:
 
 public void button7_click1(GButton source, GEvent event) { //_CODE_:button7:298680:
@@ -47,7 +47,7 @@ public void button8_click1(GButton source, GEvent event) { //_CODE_:button8:5323
 } //_CODE_:button8:532317:
 
 public void button9_click1(GButton source, GEvent event) { //_CODE_:button9:773446:
-  println("button9 - GButton >> GEvent." + event + " @ " + millis());
+  Pet3.Feed();
 } //_CODE_:button9:773446:
 
 public void button10_click1(GButton source, GEvent event) { //_CODE_:button10:657414:
@@ -63,7 +63,7 @@ public void button12_click1(GButton source, GEvent event) { //_CODE_:button12:72
 } //_CODE_:button12:722060:
 
 public void button13_click1(GButton source, GEvent event) { //_CODE_:button13:474411:
-  println("button13 - GButton >> GEvent." + event + " @ " + millis());
+  Pet4.Feed();
 } //_CODE_:button13:474411:
 
 public void button14_click1(GButton source, GEvent event) { //_CODE_:button14:340894:
