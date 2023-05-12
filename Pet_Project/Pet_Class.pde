@@ -120,7 +120,7 @@ class Pet{
     text("Happiness", x, y + 200);
     rect(x, y + 210, 104, 14);
     float test = this.happiness/100.0;
-    fill( test*255.0, -1020*test*(test-1), (1-test)*255.0);
-    rect(x+2,y + 212, 100, 10);
+    fill( (1-test)*255.0, test*255.0 ,0);
+    rect(x+2,y + 212, this.happiness, 10);
   }
 }

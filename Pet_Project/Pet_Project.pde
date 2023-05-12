@@ -22,6 +22,7 @@ void draw(){
   Pet4.drawMe(315, 200);
   
   Pet1.drawStats(15,-100);
+  fill(0);
   rect(0,299,600,2);
   rect(299,0,2,600);
   Pet1.update();
