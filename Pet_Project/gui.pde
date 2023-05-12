@@ -23,7 +23,13 @@ public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:8195
 } //_CODE_:button2:819577:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:990180:
-  println("button3 - GButton >> GEvent." + event + " @ " + millis());
+  if (Pet1.isPlaying){
+    button3.setText("Play");
+  }
+  else{
+    button3.setText("Stop Playing");
+  }
+  Pet1.Play();
 } //_CODE_:button3:990180:
 
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:573903:
@@ -39,7 +45,13 @@ public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:9865
 } //_CODE_:button6:986537:
 
 public void button7_click1(GButton source, GEvent event) { //_CODE_:button7:298680:
-  println("button7 - GButton >> GEvent." + event + " @ " + millis());
+  if (Pet2.isPlaying){
+    button7.setText("Play");
+  }
+  else{
+    button7.setText("Stop Playing");
+  }
+  Pet2.Play();
 } //_CODE_:button7:298680:
 
 public void button8_click1(GButton source, GEvent event) { //_CODE_:button8:532317:
@@ -55,7 +67,13 @@ public void button10_click1(GButton source, GEvent event) { //_CODE_:button10:65
 } //_CODE_:button10:657414:
 
 public void button11_click1(GButton source, GEvent event) { //_CODE_:button11:901145:
-  println("button11 - GButton >> GEvent." + event + " @ " + millis());
+  if (Pet3.isPlaying){
+    button11.setText("Play");
+  }
+  else{
+    button11.setText("Stop Playing");
+  }
+  Pet3.Play();
 } //_CODE_:button11:901145:
 
 public void button12_click1(GButton source, GEvent event) { //_CODE_:button12:722060:
@@ -71,12 +89,30 @@ public void button14_click1(GButton source, GEvent event) { //_CODE_:button14:34
 } //_CODE_:button14:340894:
 
 public void button15_click1(GButton source, GEvent event) { //_CODE_:button15:438548:
-  println("button15 - GButton >> GEvent." + event + " @ " + millis());
+  if (Pet4.isPlaying){
+    button15.setText("Play");
+  }
+  else{
+    button15.setText("Stop Playing");
+  }
+  Pet4.Play();
 } //_CODE_:button15:438548:
 
 public void button16_click1(GButton source, GEvent event) { //_CODE_:button16:723419:
   println("button16 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:button16:723419:
+
+synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:223683:
+  appc.background(230);
+} //_CODE_:window1:223683:
+
+public void slider1_change1(GSlider source, GEvent event) { //_CODE_:Temperature:569200:
+  println("Temperature - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Temperature:569200:
+
+public void slider1_change2(GSlider source, GEvent event) { //_CODE_:Humidity:759693:
+  println("Humidity - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Humidity:759693:
 
 
 
@@ -151,6 +187,31 @@ public void createGUI(){
   button16.setText("Talk");
   button16.setLocalColorScheme(GCScheme.RED_SCHEME);
   button16.addEventHandler(this, "button16_click1");
+  window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
+  window1.noLoop();
+  window1.setActionOnClose(G4P.KEEP_OPEN);
+  window1.addDrawHandler(this, "win_draw1");
+  Temperature = new GSlider(window1, 10, 50, 100, 40, 10.0);
+  Temperature.setShowValue(true);
+  Temperature.setLimits(20, -50, 50);
+  Temperature.setNumberFormat(G4P.INTEGER, 0);
+  Temperature.setOpaque(false);
+  Temperature.addEventHandler(this, "slider1_change1");
+  label2 = new GLabel(window1, 20, 20, 80, 20);
+  label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label2.setText("Temperature");
+  label2.setOpaque(false);
+  label1 = new GLabel(window1, 140, 20, 80, 20);
+  label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label1.setText("Humidity");
+  label1.setOpaque(false);
+  Humidity = new GSlider(window1, 130, 50, 100, 40, 10.0);
+  Humidity.setShowValue(true);
+  Humidity.setLimits(3, 1, 10);
+  Humidity.setNumberFormat(G4P.INTEGER, 0);
+  Humidity.setOpaque(false);
+  Humidity.addEventHandler(this, "slider1_change2");
+  window1.loop();
 }
 
 // Variable declarations 
@@ -171,3 +232,8 @@ GButton button13;
 GButton button14; 
 GButton button15; 
 GButton button16; 
+GWindow window1;
+GSlider Temperature; 
+GLabel label2; 
+GLabel label1; 
+GSlider Humidity; 

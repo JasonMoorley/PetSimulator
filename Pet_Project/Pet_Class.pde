@@ -9,6 +9,7 @@ class Pet{
   int hunger; //between 0 and 100, 100 being not hungry at all
 
   boolean alive = true;
+  boolean isPlaying = false;
   
   Pet(String s, String n, String g, color f, color c, int a, int h, int hun){
     this.species = s;
@@ -42,6 +43,10 @@ class Pet{
     }
   }
   
+  void Play(){
+    this.isPlaying = !this.isPlaying;
+  }
+  
   void update(){
     if (this.hunger == 0) {
       this.alive = false;
@@ -53,6 +58,14 @@ class Pet{
     else {
       this.hunger = 0;
       this.happiness = 0;
+    }
+    if (this.isPlaying == true){
+      if (this.happiness <= 98){
+        this.happiness += 2;
+      }
+      else {
+        this.happiness = 100;
+      }
     }
   }
   
