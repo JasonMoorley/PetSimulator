@@ -99,13 +99,6 @@ class Pet{
       triangle(x+115,y+115,x+200,y+150,x+150,y+200);
       triangle(x+285,y+115,x+200,y+150,x+250,y+200);
       
-      //eyes
-      fill(0);
-      circle(x+175,y+175,10);
-      circle(x+225,y+175,10);
-      
-      //name
-      text(this.name,x,y+120);
     }
     else if(this.species.equals("dog")){
       noStroke();
@@ -127,6 +120,7 @@ class Pet{
       //ears
       ellipse(x+145,y+170,50,100);
       ellipse(x+255,y+170,50,100);
+      }
       
       //eyes
       if (this.alive == true) {
@@ -135,18 +129,19 @@ class Pet{
         circle(x+225,y+175,10);
       }
       else {
-        stroke(225);
+        stroke(255);
         fill(0);
         line(x+175,y+175,x+185,y+165);
         line(x+185,y+175,x+175,y+165);
         line(x+225,y+175,x+235,y+165);
         line(x+235,y+175,x+225,y+165);
+        stroke(0);
       }
            
       
       //name
       text(this.name,x,y+120);
-    }
+    
   }
   
   void drawStats(float x,float y){
