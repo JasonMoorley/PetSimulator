@@ -102,17 +102,41 @@ public void button16_click1(GButton source, GEvent event) { //_CODE_:button16:72
   println("button16 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:button16:723419:
 
-synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:223683:
+synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:Environmental_Controls:223683:
   appc.background(230);
-} //_CODE_:window1:223683:
+} //_CODE_:Environmental_Controls:223683:
 
-public void slider1_change1(GSlider source, GEvent event) { //_CODE_:Temperature:569200:
+public void slider1_change1(GSlider source, GEvent event) { //_CODE_:Temperature1:569200:
   println("Temperature - GSlider >> GEvent." + event + " @ " + millis());
-} //_CODE_:Temperature:569200:
+} //_CODE_:Temperature1:569200:
 
-public void slider1_change2(GSlider source, GEvent event) { //_CODE_:Humidity:759693:
+public void slider1_change2(GSlider source, GEvent event) { //_CODE_:Temperature2:759693:
   println("Humidity - GSlider >> GEvent." + event + " @ " + millis());
-} //_CODE_:Humidity:759693:
+} //_CODE_:Temperature2:759693:
+
+public void slider1_change3(GSlider source, GEvent event) { //_CODE_:Temperature3:849838:
+  println("Temperature3 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Temperature3:849838:
+
+public void slider1_change4(GSlider source, GEvent event) { //_CODE_:Temperature4:648317:
+  println("Temperature4 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Temperature4:648317:
+
+public void slider1_change5(GSlider source, GEvent event) { //_CODE_:Humidity1:926434:
+  println("Humidity1 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Humidity1:926434:
+
+public void slider1_change6(GSlider source, GEvent event) { //_CODE_:Humidity2:561607:
+  println("Humidity2 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Humidity2:561607:
+
+public void slider1_change7(GSlider source, GEvent event) { //_CODE_:Humidity3:466183:
+  println("Humidity3 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Humidity3:466183:
+
+public void slider1_change8(GSlider source, GEvent event) { //_CODE_:Humidity4:354041:
+  println("Humidity4 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:Humidity4:354041:
 
 
 
@@ -187,31 +211,75 @@ public void createGUI(){
   button16.setText("Talk");
   button16.setLocalColorScheme(GCScheme.RED_SCHEME);
   button16.addEventHandler(this, "button16_click1");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
-  window1.noLoop();
-  window1.setActionOnClose(G4P.KEEP_OPEN);
-  window1.addDrawHandler(this, "win_draw1");
-  Temperature = new GSlider(window1, 10, 50, 100, 40, 10.0);
-  Temperature.setShowValue(true);
-  Temperature.setLimits(20, -50, 50);
-  Temperature.setNumberFormat(G4P.INTEGER, 0);
-  Temperature.setOpaque(false);
-  Temperature.addEventHandler(this, "slider1_change1");
-  label2 = new GLabel(window1, 20, 20, 80, 20);
+  Environmental_Controls = GWindow.getWindow(this, "Window title", 0, 0, 240, 260, JAVA2D);
+  Environmental_Controls.noLoop();
+  Environmental_Controls.setActionOnClose(G4P.KEEP_OPEN);
+  Environmental_Controls.addDrawHandler(this, "win_draw1");
+  Temperature1 = new GSlider(Environmental_Controls, 10, 50, 100, 40, 10.0);
+  Temperature1.setShowValue(true);
+  Temperature1.setLimits(20, -50, 50);
+  Temperature1.setNumberFormat(G4P.INTEGER, 0);
+  Temperature1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  Temperature1.setOpaque(false);
+  Temperature1.addEventHandler(this, "slider1_change1");
+  label2 = new GLabel(Environmental_Controls, 20, 20, 80, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Temperature");
   label2.setOpaque(false);
-  label1 = new GLabel(window1, 140, 20, 80, 20);
+  label1 = new GLabel(Environmental_Controls, 140, 20, 80, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Humidity");
   label1.setOpaque(false);
-  Humidity = new GSlider(window1, 130, 50, 100, 40, 10.0);
-  Humidity.setShowValue(true);
-  Humidity.setLimits(3, 1, 10);
-  Humidity.setNumberFormat(G4P.INTEGER, 0);
-  Humidity.setOpaque(false);
-  Humidity.addEventHandler(this, "slider1_change2");
-  window1.loop();
+  Temperature2 = new GSlider(Environmental_Controls, 10, 100, 100, 40, 10.0);
+  Temperature2.setShowValue(true);
+  Temperature2.setLimits(20, -50, 50);
+  Temperature2.setNumberFormat(G4P.INTEGER, 0);
+  Temperature2.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  Temperature2.setOpaque(false);
+  Temperature2.addEventHandler(this, "slider1_change2");
+  Temperature3 = new GSlider(Environmental_Controls, 10, 150, 100, 40, 10.0);
+  Temperature3.setShowValue(true);
+  Temperature3.setLimits(20, -50, 50);
+  Temperature3.setNumberFormat(G4P.INTEGER, 0);
+  Temperature3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  Temperature3.setOpaque(false);
+  Temperature3.addEventHandler(this, "slider1_change3");
+  Temperature4 = new GSlider(Environmental_Controls, 10, 200, 100, 40, 10.0);
+  Temperature4.setShowValue(true);
+  Temperature4.setLimits(20, -50, 50);
+  Temperature4.setNumberFormat(G4P.INTEGER, 0);
+  Temperature4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Temperature4.setOpaque(false);
+  Temperature4.addEventHandler(this, "slider1_change4");
+  Humidity1 = new GSlider(Environmental_Controls, 130, 50, 100, 40, 10.0);
+  Humidity1.setShowValue(true);
+  Humidity1.setLimits(1, 0, 10);
+  Humidity1.setNumberFormat(G4P.INTEGER, 0);
+  Humidity1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  Humidity1.setOpaque(false);
+  Humidity1.addEventHandler(this, "slider1_change5");
+  Humidity2 = new GSlider(Environmental_Controls, 130, 100, 100, 40, 10.0);
+  Humidity2.setShowValue(true);
+  Humidity2.setLimits(1, 0, 10);
+  Humidity2.setNumberFormat(G4P.INTEGER, 0);
+  Humidity2.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  Humidity2.setOpaque(false);
+  Humidity2.addEventHandler(this, "slider1_change6");
+  Humidity3 = new GSlider(Environmental_Controls, 130, 150, 100, 40, 10.0);
+  Humidity3.setShowValue(true);
+  Humidity3.setLimits(1, 0, 10);
+  Humidity3.setNumberFormat(G4P.INTEGER, 0);
+  Humidity3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  Humidity3.setOpaque(false);
+  Humidity3.addEventHandler(this, "slider1_change7");
+  Humidity4 = new GSlider(Environmental_Controls, 130, 200, 100, 40, 10.0);
+  Humidity4.setShowValue(true);
+  Humidity4.setLimits(1, 0, 10);
+  Humidity4.setNumberFormat(G4P.INTEGER, 0);
+  Humidity4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  Humidity4.setOpaque(false);
+  Humidity4.addEventHandler(this, "slider1_change8");
+  Environmental_Controls.loop();
 }
 
 // Variable declarations 
@@ -232,8 +300,14 @@ GButton button13;
 GButton button14; 
 GButton button15; 
 GButton button16; 
-GWindow window1;
-GSlider Temperature; 
+GWindow Environmental_Controls;
+GSlider Temperature1; 
 GLabel label2; 
 GLabel label1; 
-GSlider Humidity; 
+GSlider Temperature2; 
+GSlider Temperature3; 
+GSlider Temperature4; 
+GSlider Humidity1; 
+GSlider Humidity2; 
+GSlider Humidity3; 
+GSlider Humidity4; 
