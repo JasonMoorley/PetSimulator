@@ -23,22 +23,23 @@ class Pet{
 
   }
   
-  
+  //Feed pet function
   void Feed(){
-    if (this.hunger < 60){
+    if (this.hunger < 60){  //If pet is very hungry it's more satisfied w/ food
      this.hunger += 20;
     }
-    else if ((this.hunger >= 60)&&(this.hunger <= 90)){
+    else if ((this.hunger >= 60)&&(this.hunger <= 90)){  //If pet is well fed it gets a normal amount of food satisfaction
       this.hunger += 10;
     }
   }
   
+  //Feed pet a treat function
   void Treat(){
-    if (this.hunger <= 90){
+    if (this.hunger <= 90){  //Treats improve hunger by a small amount
       this.hunger += 5;
     }
-    if (this.happiness <= 85){
-      this.happiness += 15;
+    if (this.happiness <= 85){  //Treats make pets really happy
+      this.happiness += 15; 
     }
   }
   
@@ -47,14 +48,14 @@ class Pet{
   }
   
   void update(){
-    if (this.hunger == 0) {
+    if (this.hunger == 0 || this.happiness == 0) {  //If the pet is too hungry or depressed it dies
       this.alive = false;
     }
-    if (this.alive == true) {
+    if (this.alive == true) {  //As long a the pet is alive its stats are always decreasing
       this.hunger -= 0.1;
       this.happiness -= 0.1;
     }
-    else {
+    else {  //Dead pets can't be revived
       this.hunger = 0;
       this.happiness = 0;
     }
