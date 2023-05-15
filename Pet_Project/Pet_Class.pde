@@ -56,7 +56,7 @@ class Pet{
   }
   
   void update(){
-    if (this.hunger == 0) {
+    if (this.hunger <= 0) {
       this.alive = false;
     }
     if (this.alive == true) {
