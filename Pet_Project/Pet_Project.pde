@@ -1,6 +1,6 @@
 import g4p_controls.*;
 
-//Pet(String s, String n, String g, color f, color c, int a, int h, int hun, int t, int hum)
+//Pet (String s, String n, String g, color f, color c, int a, int h, int hun, int t, int hum)
 Pet Pet1 = new Pet("dog", "Dooyeon", "Male", color(200,150,0), color(255,0,0), 17, 100, 100);
 Pet Pet2 = new Pet("cat", "Jiun", "Male", color(175,125,25), color(0,0,255), 17, 100, 100);
 Pet Pet3 = new Pet("cat", "Matthew", "Female", color(100), color(0,200,220), 17, 100, 100);
