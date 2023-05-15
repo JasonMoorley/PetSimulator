@@ -127,6 +127,7 @@ class Pet{
       }
       else {
         stroke(225);
+        fill(0);
         line(x+175,y+175,x+185,y+165);
         line(x+185,y+175,x+175,y+165);
         line(x+225,y+175,x+235,y+165);
