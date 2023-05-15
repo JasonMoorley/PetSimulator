@@ -60,8 +60,8 @@ class Pet{
       this.alive = false;
     }
     if (this.alive == true) {
-      this.hunger -= random(0,0.1);
-      this.happiness -= random(0,0.1);
+      this.hunger -= random(0,1);
+      this.happiness -= random(0,1);
     }
     else {
       this.hunger = 0;
