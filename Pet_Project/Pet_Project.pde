@@ -21,9 +21,17 @@ void draw(){
   Pet3.drawMe(15,200);
   Pet4.drawMe(315, 200);
   
+  Pet1.update();
+  Pet2.update();
+  Pet3.update();
+  Pet4.update();
+  
   Pet1.drawStats(15,-100);
+  Pet2.drawStats(315,-100);
+  Pet3.drawStats(15,200);
+  Pet4.drawStats(315,200);
   fill(0);
   rect(0,299,600,2);
   rect(299,0,2,600);
-  Pet1.update();
+  
 }

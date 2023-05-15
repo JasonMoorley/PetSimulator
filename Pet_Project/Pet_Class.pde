@@ -5,13 +5,13 @@ class Pet{
   color furColour;
   color collarColour;
   int age;
-  int happiness; //between 0 and 100, 100 being happiest
-  int hunger; //between 0 and 100, 100 being not hungry at all
+  float happiness; //between 0 and 100, 100 being happiest
+  float hunger; //between 0 and 100, 100 being not hungry at all
 
   boolean alive = true;
   boolean isPlaying = false;
   
-  Pet(String s, String n, String g, color f, color c, int a, int h, int hun){
+  Pet(String s, String n, String g, color f, color c, int a, float h, int hun){
     this.species = s;
     this.name = n;
     this.gender = g;
@@ -31,14 +31,23 @@ class Pet{
     else if ((this.hunger >= 60)&&(this.hunger <= 90)){
       this.hunger += 10;
     }
+    else {
+      this.hunger = 100;
+    }
   }
   
   void Treat(){
-    if (this.hunger <= 90){
+    if (this.hunger <= 95){
       this.hunger += 5;
+    }
+    else{
+      this.hunger = 100;
     }
     if (this.happiness <= 85){
       this.happiness += 15;
+    }
+    else{
+      this.happiness = 100;
     }
   }
   
@@ -51,8 +60,8 @@ class Pet{
       this.alive = false;
     }
     if (this.alive == true) {
-      this.hunger -= 0.1;
-      this.happiness -= 0.1;
+      this.hunger -= random(0,0.1);
+      this.happiness -= random(0,0.1);
     }
     else {
       this.hunger = 0;
