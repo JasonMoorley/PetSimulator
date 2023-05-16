@@ -102,6 +102,49 @@ public void button16_click1(GButton source, GEvent event) { //_CODE_:button16:72
   println("button16 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:button16:723419:
 
+public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:dropList1:626845:
+  currentPet = dropList1.getSelectedIndex();
+  textfield1.setText(Pets[currentPet].name);
+  slider1.setLimits(255-red(Pets[currentPet].furColour), 0, 255);
+  slider2.setLimits(255-green(Pets[currentPet].furColour), 0, 255);
+  slider3.setLimits(255-blue(Pets[currentPet].furColour), 0, 255);
+  slider4.setLimits(255-red(Pets[currentPet].collarColour), 0, 255);
+  slider5.setLimits(255-green(Pets[currentPet].collarColour), 0, 255);
+  slider6.setLimits(255-blue(Pets[currentPet].collarColour), 0, 255);
+} //_CODE_:dropList1:626845:
+
+public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:910337:
+  Pets[currentPet].name = textfield1.getText();
+} //_CODE_:textfield1:910337:
+
+public void dropList2_click1(GDropList source, GEvent event) { //_CODE_:dropList2:402835:
+  Pets[currentPet].species = dropList2.getSelectedText();
+} //_CODE_:dropList2:402835:
+
+public void slider1_change9(GSlider source, GEvent event) { //_CODE_:slider1:762157:
+  Pets[currentPet].furColour = color( 255 - slider1.getValueI(), green(Pets[currentPet].furColour), blue(Pets[currentPet].furColour) );
+} //_CODE_:slider1:762157:
+
+public void slider2_change1(GSlider source, GEvent event) { //_CODE_:slider2:973711:
+  Pets[currentPet].furColour = color( red(Pets[currentPet].furColour), 255 - slider2.getValueI(), blue(Pets[currentPet].furColour) );
+} //_CODE_:slider2:973711:
+
+public void slider3_change1(GSlider source, GEvent event) { //_CODE_:slider3:297169:
+  Pets[currentPet].furColour = color( red(Pets[currentPet].furColour), green(Pets[currentPet].furColour), 255 - slider3.getValueI() );
+} //_CODE_:slider3:297169:
+
+public void slider4_change1(GSlider source, GEvent event) { //_CODE_:slider4:435675:
+  Pets[currentPet].collarColour = color( 255 - slider4.getValueI(), green(Pets[currentPet].collarColour), blue(Pets[currentPet].collarColour) );
+} //_CODE_:slider4:435675:
+
+public void slider5_change1(GSlider source, GEvent event) { //_CODE_:slider5:923808:
+  Pets[currentPet].collarColour = color( red(Pets[currentPet].collarColour), 255 - slider5.getValueI(), blue(Pets[currentPet].collarColour) );
+} //_CODE_:slider5:923808:
+
+public void slider6_change1(GSlider source, GEvent event) { //_CODE_:slider6:722198:
+  Pets[currentPet].collarColour = color( red(Pets[currentPet].collarColour), green(Pets[currentPet].collarColour), 255 - slider6.getValueI() );
+} //_CODE_:slider6:722198:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:Environmental_Controls:223683:
   appc.background(230);
 } //_CODE_:Environmental_Controls:223683:
@@ -137,6 +180,18 @@ public void slider1_change7(GSlider source, GEvent event) { //_CODE_:Humidity3:4
 public void slider1_change8(GSlider source, GEvent event) { //_CODE_:Humidity4:354041:
   println("Humidity4 - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:Humidity4:354041:
+
+public void button17_click1(GButton source, GEvent event) { //_CODE_:button17:837630:
+  surface.setResizable(true);
+  settingsShown = !settingsShown;
+  if (settingsShown){
+    surface.setSize(900,600);
+  }
+  else{
+    surface.setSize(600,600);
+  }
+  surface.setResizable(false);
+} //_CODE_:button17:837630:
 
 
 
@@ -211,7 +266,57 @@ public void createGUI(){
   button16.setText("Talk");
   button16.setLocalColorScheme(GCScheme.RED_SCHEME);
   button16.addEventHandler(this, "button16_click1");
-  Environmental_Controls = GWindow.getWindow(this, "Window title", 0, 0, 240, 260, JAVA2D);
+  dropList1 = new GDropList(this, 640, 330, 90, 100, 4, 10);
+  dropList1.setItems(loadStrings("list_626845"), 0);
+  dropList1.addEventHandler(this, "dropList1_click1");
+  textfield1 = new GTextField(this, 750, 330, 120, 20, G4P.SCROLLBARS_NONE);
+  textfield1.setPromptText("Name");
+  textfield1.setOpaque(false);
+  textfield1.addEventHandler(this, "textfield1_change1");
+  dropList2 = new GDropList(this, 640, 440, 90, 60, 2, 10);
+  dropList2.setItems(loadStrings("list_402835"), 0);
+  dropList2.addEventHandler(this, "dropList2_click1");
+  slider1 = new GSlider(this, 780, 400, 60, 30, 10.0);
+  slider1.setRotation(PI/2, GControlMode.CORNER);
+  slider1.setLimits(1, 0, 255);
+  slider1.setNumberFormat(G4P.INTEGER, 0);
+  slider1.setLocalColorScheme(GCScheme.RED_SCHEME);
+  slider1.setOpaque(false);
+  slider1.addEventHandler(this, "slider1_change9");
+  slider2 = new GSlider(this, 825, 400, 60, 30, 10.0);
+  slider2.setRotation(PI/2, GControlMode.CORNER);
+  slider2.setLimits(1, 0, 255);
+  slider2.setNumberFormat(G4P.INTEGER, 0);
+  slider2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  slider2.setOpaque(false);
+  slider2.addEventHandler(this, "slider2_change1");
+  slider3 = new GSlider(this, 870, 400, 60, 30, 10.0);
+  slider3.setRotation(PI/2, GControlMode.CORNER);
+  slider3.setLimits(1.0, 0.0, 255.0);
+  slider3.setNumberFormat(G4P.DECIMAL, 2);
+  slider3.setOpaque(false);
+  slider3.addEventHandler(this, "slider3_change1");
+  slider4 = new GSlider(this, 780, 480, 60, 30, 10.0);
+  slider4.setRotation(PI/2, GControlMode.CORNER);
+  slider4.setLimits(1, 0, 255);
+  slider4.setNumberFormat(G4P.INTEGER, 0);
+  slider4.setLocalColorScheme(GCScheme.RED_SCHEME);
+  slider4.setOpaque(false);
+  slider4.addEventHandler(this, "slider4_change1");
+  slider5 = new GSlider(this, 825, 480, 60, 30, 10.0);
+  slider5.setRotation(PI/2, GControlMode.CORNER);
+  slider5.setLimits(1, 0, 255);
+  slider5.setNumberFormat(G4P.INTEGER, 0);
+  slider5.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  slider5.setOpaque(false);
+  slider5.addEventHandler(this, "slider5_change1");
+  slider6 = new GSlider(this, 870, 480, 60, 30, 10.0);
+  slider6.setRotation(PI/2, GControlMode.CORNER);
+  slider6.setLimits(1.0, 0.0, 255.0);
+  slider6.setNumberFormat(G4P.DECIMAL, 2);
+  slider6.setOpaque(false);
+  slider6.addEventHandler(this, "slider6_change1");
+  Environmental_Controls = GWindow.getWindow(this, "Window title", 0, 0, 240, 300, JAVA2D);
   Environmental_Controls.noLoop();
   Environmental_Controls.setActionOnClose(G4P.KEEP_OPEN);
   Environmental_Controls.addDrawHandler(this, "win_draw1");
@@ -279,6 +384,10 @@ public void createGUI(){
   Humidity4.setLocalColorScheme(GCScheme.RED_SCHEME);
   Humidity4.setOpaque(false);
   Humidity4.addEventHandler(this, "slider1_change8");
+  button17 = new GButton(Environmental_Controls, 80, 260, 80, 30);
+  button17.setText("Settings");
+  button17.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  button17.addEventHandler(this, "button17_click1");
   Environmental_Controls.loop();
 }
 
@@ -300,6 +409,15 @@ GButton button13;
 GButton button14; 
 GButton button15; 
 GButton button16; 
+GDropList dropList1; 
+GTextField textfield1; 
+GDropList dropList2; 
+GSlider slider1; 
+GSlider slider2; 
+GSlider slider3; 
+GSlider slider4; 
+GSlider slider5; 
+GSlider slider6; 
 GWindow Environmental_Controls;
 GSlider Temperature1; 
 GLabel label2; 
@@ -311,3 +429,4 @@ GSlider Humidity1;
 GSlider Humidity2; 
 GSlider Humidity3; 
 GSlider Humidity4; 
+GButton button17; 

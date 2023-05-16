@@ -60,13 +60,13 @@ class Pet{
       this.alive = false;
     }
     if (this.happiness >= 1){
-     this.happiness -= random(0,1); 
+     this.happiness -= random(0,0.1); 
     }
     else{
      this.happiness = 0; 
     }
     if (this.alive == true) {
-      this.hunger -= random(0,1);
+      this.hunger -= random(0,0.1);
     }
     else {
       this.hunger = 0;
@@ -142,11 +142,12 @@ class Pet{
         line(x+235,y+175,x+225,y+165);
         stroke(0);
       }
-           
-      
-      //name
-      text(this.name,x,y+120);
     
+  }
+  
+  void drawName(float x, float y){
+   fill(0);
+   text(this.name,x,y+120); 
   }
   
   void drawStats(float x,float y){
