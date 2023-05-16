@@ -17,6 +17,7 @@ void setup(){
   Pets[2] = Pet3;
   Pets[3] = Pet4;
   size(600,600);
+  surface.setResizable(true);
   frameRate(10);
   createGUI();
   textfield1.setText(Pets[0].name);

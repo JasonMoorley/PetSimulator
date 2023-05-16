@@ -182,7 +182,6 @@ public void slider1_change8(GSlider source, GEvent event) { //_CODE_:Humidity4:3
 } //_CODE_:Humidity4:354041:
 
 public void button17_click1(GButton source, GEvent event) { //_CODE_:button17:837630:
-  surface.setResizable(true);
   settingsShown = !settingsShown;
   if (settingsShown){
     surface.setSize(900,600);
@@ -190,7 +189,6 @@ public void button17_click1(GButton source, GEvent event) { //_CODE_:button17:83
   else{
     surface.setSize(600,600);
   }
-  surface.setResizable(false);
 } //_CODE_:button17:837630:
 
 
@@ -266,56 +264,76 @@ public void createGUI(){
   button16.setText("Talk");
   button16.setLocalColorScheme(GCScheme.RED_SCHEME);
   button16.addEventHandler(this, "button16_click1");
-  dropList1 = new GDropList(this, 640, 330, 90, 100, 4, 10);
+  dropList1 = new GDropList(this, 640, 350, 90, 100, 4, 10);
   dropList1.setItems(loadStrings("list_626845"), 0);
   dropList1.addEventHandler(this, "dropList1_click1");
-  textfield1 = new GTextField(this, 750, 330, 120, 20, G4P.SCROLLBARS_NONE);
+  textfield1 = new GTextField(this, 750, 350, 120, 20, G4P.SCROLLBARS_NONE);
   textfield1.setPromptText("Name");
   textfield1.setOpaque(false);
   textfield1.addEventHandler(this, "textfield1_change1");
-  dropList2 = new GDropList(this, 640, 440, 90, 60, 2, 10);
+  dropList2 = new GDropList(this, 640, 480, 90, 60, 2, 10);
   dropList2.setItems(loadStrings("list_402835"), 0);
   dropList2.addEventHandler(this, "dropList2_click1");
-  slider1 = new GSlider(this, 780, 400, 60, 30, 10.0);
+  slider1 = new GSlider(this, 780, 410, 60, 30, 10.0);
   slider1.setRotation(PI/2, GControlMode.CORNER);
   slider1.setLimits(1, 0, 255);
   slider1.setNumberFormat(G4P.INTEGER, 0);
   slider1.setLocalColorScheme(GCScheme.RED_SCHEME);
   slider1.setOpaque(false);
   slider1.addEventHandler(this, "slider1_change9");
-  slider2 = new GSlider(this, 825, 400, 60, 30, 10.0);
+  slider2 = new GSlider(this, 825, 410, 60, 30, 10.0);
   slider2.setRotation(PI/2, GControlMode.CORNER);
   slider2.setLimits(1, 0, 255);
   slider2.setNumberFormat(G4P.INTEGER, 0);
   slider2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   slider2.setOpaque(false);
   slider2.addEventHandler(this, "slider2_change1");
-  slider3 = new GSlider(this, 870, 400, 60, 30, 10.0);
+  slider3 = new GSlider(this, 870, 410, 60, 30, 10.0);
   slider3.setRotation(PI/2, GControlMode.CORNER);
   slider3.setLimits(1.0, 0.0, 255.0);
   slider3.setNumberFormat(G4P.DECIMAL, 2);
   slider3.setOpaque(false);
   slider3.addEventHandler(this, "slider3_change1");
-  slider4 = new GSlider(this, 780, 480, 60, 30, 10.0);
+  slider4 = new GSlider(this, 780, 510, 60, 30, 10.0);
   slider4.setRotation(PI/2, GControlMode.CORNER);
   slider4.setLimits(1, 0, 255);
   slider4.setNumberFormat(G4P.INTEGER, 0);
   slider4.setLocalColorScheme(GCScheme.RED_SCHEME);
   slider4.setOpaque(false);
   slider4.addEventHandler(this, "slider4_change1");
-  slider5 = new GSlider(this, 825, 480, 60, 30, 10.0);
+  slider5 = new GSlider(this, 825, 510, 60, 30, 10.0);
   slider5.setRotation(PI/2, GControlMode.CORNER);
   slider5.setLimits(1, 0, 255);
   slider5.setNumberFormat(G4P.INTEGER, 0);
   slider5.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   slider5.setOpaque(false);
   slider5.addEventHandler(this, "slider5_change1");
-  slider6 = new GSlider(this, 870, 480, 60, 30, 10.0);
+  slider6 = new GSlider(this, 870, 510, 60, 30, 10.0);
   slider6.setRotation(PI/2, GControlMode.CORNER);
   slider6.setLimits(1.0, 0.0, 255.0);
   slider6.setNumberFormat(G4P.DECIMAL, 2);
   slider6.setOpaque(false);
   slider6.addEventHandler(this, "slider6_change1");
+  label3 = new GLabel(this, 770, 330, 80, 20);
+  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label3.setText("Name");
+  label3.setOpaque(true);
+  label4 = new GLabel(this, 645, 329, 80, 20);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("Pet");
+  label4.setOpaque(true);
+  label5 = new GLabel(this, 645, 460, 80, 20);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("My label");
+  label5.setOpaque(true);
+  label6 = new GLabel(this, 770, 390, 80, 20);
+  label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label6.setText("Fur Colour");
+  label6.setOpaque(true);
+  label7 = new GLabel(this, 770, 490, 80, 20);
+  label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label7.setText("Collar Colour");
+  label7.setOpaque(true);
   Environmental_Controls = GWindow.getWindow(this, "Window title", 0, 0, 240, 300, JAVA2D);
   Environmental_Controls.noLoop();
   Environmental_Controls.setActionOnClose(G4P.KEEP_OPEN);
@@ -418,6 +436,11 @@ GSlider slider3;
 GSlider slider4; 
 GSlider slider5; 
 GSlider slider6; 
+GLabel label3; 
+GLabel label4; 
+GLabel label5; 
+GLabel label6; 
+GLabel label7; 
 GWindow Environmental_Controls;
 GSlider Temperature1; 
 GLabel label2; 
