@@ -5,13 +5,13 @@ class Pet{
   color furColour;
   color collarColour;
   int age;
-  int happiness; //between 0 and 100, 100 being happiest
-  int hunger; //between 0 and 100, 100 being not hungry at all
+  float happiness; //between 0 and 100, 100 being happiest
+  float hunger; //between 0 and 100, 100 being not hungry at all
 
   boolean alive = true;
   boolean isPlaying = false;
   
-  Pet(String s, String n, String g, color f, color c, int a, int h, int hun){
+  Pet(String s, String n, String g, color f, color c, int a, float h, int hun){
     this.species = s;
     this.name = n;
     this.gender = g;
@@ -23,23 +23,31 @@ class Pet{
 
   }
   
-  //Feed pet function
+  
   void Feed(){
-    if (this.hunger < 60){  //If pet is very hungry it's more satisfied w/ food
+    if (this.hunger < 60){
      this.hunger += 20;
     }
-    else if ((this.hunger >= 60)&&(this.hunger <= 90)){  //If pet is well fed it gets a normal amount of food satisfaction
+    else if ((this.hunger >= 60)&&(this.hunger <= 90)){
       this.hunger += 10;
+    }
+    else {
+      this.hunger = 100;
     }
   }
   
-  //Feed pet a treat function
   void Treat(){
-    if (this.hunger <= 90){  //Treats improve hunger by a small amount
+    if (this.hunger <= 95){
       this.hunger += 5;
     }
-    if (this.happiness <= 85){  //Treats make pets really happy
-      this.happiness += 15; 
+    else{
+      this.hunger = 100;
+    }
+    if (this.happiness <= 85){
+      this.happiness += 15;
+    }
+    else{
+      this.happiness = 100;
     }
   }
   
@@ -48,14 +56,19 @@ class Pet{
   }
   
   void update(){
-    if (this.hunger == 0 || this.happiness == 0) {  //If the pet is too hungry or depressed it dies
+    if (this.hunger <= 0) {
       this.alive = false;
     }
-    if (this.alive == true) {  //As long a the pet is alive its stats are always decreasing
-      this.hunger -= 0.1;
-      this.happiness -= 0.1;
+    if (this.happiness >= 1){
+     this.happiness -= random(0,1); 
     }
-    else {  //Dead pets can't be revived
+    else{
+     this.happiness = 0; 
+    }
+    if (this.alive == true) {
+      this.hunger -= random(0,1);
+    }
+    else {
       this.hunger = 0;
       this.happiness = 0;
     }
@@ -91,13 +104,6 @@ class Pet{
       triangle(x+115,y+115,x+200,y+150,x+150,y+200);
       triangle(x+285,y+115,x+200,y+150,x+250,y+200);
       
-      //eyes
-      fill(0);
-      circle(x+175,y+175,10);
-      circle(x+225,y+175,10);
-      
-      //name
-      text(this.name,x,y+120);
     }
     else if(this.species.equals("dog")){
       noStroke();
@@ -119,6 +125,7 @@ class Pet{
       //ears
       ellipse(x+145,y+170,50,100);
       ellipse(x+255,y+170,50,100);
+      }
       
       //eyes
       if (this.alive == true) {
@@ -127,17 +134,19 @@ class Pet{
         circle(x+225,y+175,10);
       }
       else {
-        stroke(225);
+        stroke(255);
+        fill(0);
         line(x+175,y+175,x+185,y+165);
         line(x+185,y+175,x+175,y+165);
         line(x+225,y+175,x+235,y+165);
         line(x+235,y+175,x+225,y+165);
+        stroke(0);
       }
            
       
       //name
       text(this.name,x,y+120);
-    }
+    
   }
   
   void drawStats(float x,float y){
