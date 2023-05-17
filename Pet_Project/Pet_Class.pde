@@ -55,6 +55,15 @@ class Pet{
     this.isPlaying = !this.isPlaying;
   }
   
+  void Talk(){
+    if (this.happiness <= 85){
+       this.happiness += 15 ;
+    }
+    else{
+      this.happiness = 100;
+    }
+  }
+  
   void update(){
     if (this.hunger <= 0) {
       this.alive = false;

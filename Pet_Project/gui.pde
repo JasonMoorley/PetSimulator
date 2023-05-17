@@ -33,7 +33,7 @@ public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:9901
 } //_CODE_:button3:990180:
 
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:573903:
-  println("button4 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Talk();
 } //_CODE_:button4:573903:
 
 public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:661384:
@@ -55,7 +55,7 @@ public void button7_click1(GButton source, GEvent event) { //_CODE_:button7:2986
 } //_CODE_:button7:298680:
 
 public void button8_click1(GButton source, GEvent event) { //_CODE_:button8:532317:
-  println("button8 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Talk();
 } //_CODE_:button8:532317:
 
 public void button9_click1(GButton source, GEvent event) { //_CODE_:button9:773446:
@@ -77,7 +77,7 @@ public void button11_click1(GButton source, GEvent event) { //_CODE_:button11:90
 } //_CODE_:button11:901145:
 
 public void button12_click1(GButton source, GEvent event) { //_CODE_:button12:722060:
-  println("button12 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Talk();
 } //_CODE_:button12:722060:
 
 public void button13_click1(GButton source, GEvent event) { //_CODE_:button13:474411:
@@ -99,7 +99,7 @@ public void button15_click1(GButton source, GEvent event) { //_CODE_:button15:43
 } //_CODE_:button15:438548:
 
 public void button16_click1(GButton source, GEvent event) { //_CODE_:button16:723419:
-  println("button16 - GButton >> GEvent." + event + " @ " + millis());
+  Pet1.Talk();
 } //_CODE_:button16:723419:
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:dropList1:626845:
@@ -324,7 +324,7 @@ public void createGUI(){
   label4.setOpaque(true);
   label5 = new GLabel(this, 645, 460, 80, 20);
   label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label5.setText("My label");
+  label5.setText("Species");
   label5.setOpaque(true);
   label6 = new GLabel(this, 770, 390, 80, 20);
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
