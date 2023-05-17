@@ -55,7 +55,7 @@ public void button7_click1(GButton source, GEvent event) { //_CODE_:button7:2986
 } //_CODE_:button7:298680:
 
 public void button8_click1(GButton source, GEvent event) { //_CODE_:button8:532317:
-  Pet1.Talk();
+  Pet2.Talk();
 } //_CODE_:button8:532317:
 
 public void button9_click1(GButton source, GEvent event) { //_CODE_:button9:773446:
@@ -77,7 +77,7 @@ public void button11_click1(GButton source, GEvent event) { //_CODE_:button11:90
 } //_CODE_:button11:901145:
 
 public void button12_click1(GButton source, GEvent event) { //_CODE_:button12:722060:
-  Pet1.Talk();
+  Pet3.Talk();
 } //_CODE_:button12:722060:
 
 public void button13_click1(GButton source, GEvent event) { //_CODE_:button13:474411:
@@ -99,7 +99,7 @@ public void button15_click1(GButton source, GEvent event) { //_CODE_:button15:43
 } //_CODE_:button15:438548:
 
 public void button16_click1(GButton source, GEvent event) { //_CODE_:button16:723419:
-  Pet1.Talk();
+  Pet4.Talk();
 } //_CODE_:button16:723419:
 
 public void dropList1_click1(GDropList source, GEvent event) { //_CODE_:dropList1:626845:
@@ -150,19 +150,19 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:Envir
 } //_CODE_:Environmental_Controls:223683:
 
 public void slider1_change1(GSlider source, GEvent event) { //_CODE_:Temperature1:569200:
-  println("Temperature - GSlider >> GEvent." + event + " @ " + millis());
+  temperatures[0] = Temperature1.getValueI();
 } //_CODE_:Temperature1:569200:
 
 public void slider1_change2(GSlider source, GEvent event) { //_CODE_:Temperature2:759693:
-  println("Humidity - GSlider >> GEvent." + event + " @ " + millis());
+  temperatures[1] = Temperature2.getValueI();
 } //_CODE_:Temperature2:759693:
 
 public void slider1_change3(GSlider source, GEvent event) { //_CODE_:Temperature3:849838:
-  println("Temperature3 - GSlider >> GEvent." + event + " @ " + millis());
+  temperatures[2] = Temperature3.getValueI();
 } //_CODE_:Temperature3:849838:
 
 public void slider1_change4(GSlider source, GEvent event) { //_CODE_:Temperature4:648317:
-  println("Temperature4 - GSlider >> GEvent." + event + " @ " + millis());
+  temperatures[3] = Temperature4.getValueI();
 } //_CODE_:Temperature4:648317:
 
 public void slider1_change5(GSlider source, GEvent event) { //_CODE_:Humidity1:926434:

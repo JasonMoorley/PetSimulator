@@ -136,6 +136,36 @@ class Pet{
       ellipse(x+255,y+170,50,100);
       }
       
+      else if (this.species.equals("snake")){
+        noStroke();
+      
+        //body
+        fill(furColour);
+        rect(x+180,y+200,40,60);
+        rect(x+120,y+260,100,40);
+        rect(x+120,y+260,40,100);
+        rect(x+120,y+320,100,40);
+        rect(x+180,y+320,40,80);
+        
+        //collar
+        fill(collarColour);
+        rect(x+180,y+220,40,20);
+        fill(250,250,0);
+        circle(x+200,y+240,10);
+        
+        //head
+        fill(furColour);
+        circle(x+200,y+175,100);
+        
+        //tongue
+        stroke(120,0,20);
+        line(x+185,y+200,x+215,y+200);
+        fill(230,0,0);
+        rect(x+195,y+200,10,20);
+        stroke(0);
+        
+      }
+      
       //eyes
       if (this.alive == true) {
         fill(0);
@@ -156,6 +186,7 @@ class Pet{
   
   void drawName(float x, float y){
    fill(0);
+   textSize(15);
    text(this.name,x,y+120); 
   }
   
