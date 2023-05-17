@@ -9,7 +9,7 @@ Pet[] Pets;
 Pet Pet1 = new Pet("dog", "Dooyeon", "Male", color(200,150,0), color(255,0,0), 17, 100, 100);
 Pet Pet2 = new Pet("cat", "Jiun", "Male", color(175,125,25), color(0,0,255), 17, 100, 100);
 Pet Pet3 = new Pet("snake", "Grace", "Female", color(50,170,50), color(0,200,100), 17, 100, 100);
-Pet Pet4 = new Pet("dog", "Olivia", "Female", color(100,65,50), color(200,200,0), 17, 100, 100);
+Pet Pet4 = new Pet("bird", "Olivia", "Female", color(100,65,50), color(200,200,0), 17, 100, 100);
 
 void setup(){
   temperatures = new int[4];

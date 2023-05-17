@@ -271,7 +271,7 @@ public void createGUI(){
   textfield1.setPromptText("Name");
   textfield1.setOpaque(false);
   textfield1.addEventHandler(this, "textfield1_change1");
-  dropList2 = new GDropList(this, 640, 480, 90, 60, 2, 10);
+  dropList2 = new GDropList(this, 640, 480, 90, 120, 5, 10);
   dropList2.setItems(loadStrings("list_402835"), 0);
   dropList2.addEventHandler(this, "dropList2_click1");
   slider1 = new GSlider(this, 780, 410, 60, 30, 10.0);

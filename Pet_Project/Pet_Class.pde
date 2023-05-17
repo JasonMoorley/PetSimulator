@@ -166,13 +166,71 @@ class Pet{
         
       }
       
+      else if(this.species.equals("bird")){
+        noStroke();
+      
+        
+        
+        
+        
+        //legs
+        stroke(220,220,0);
+        strokeWeight(3);
+        line(x+195,y+220,x+190,y+250);
+        line(x+205,y+220,x+210,y+250);
+        stroke(0);
+        strokeWeight(1);
+        
+        //wings
+        noStroke();
+        fill(furColour);
+        triangle(x+175,y+170,x+175,y+205,x+165,y+170);
+        triangle(x+225,y+170,x+225,y+205,x+235,y+170);
+        
+        //body
+        fill(furColour);
+        rect(x+175,y+150,50,70,20,20,20,20);
+        
+        //beak
+        fill(200,130,0);
+        triangle(x+190,y+190,x+210,y+190,x+200,y+210);
+        
+        //collar
+        fill(collarColour);
+        rect(x+210,y+195,10,10);
+        fill(250,250,0);
+        circle(x+215,y+208,10);
+        
+        //perch
+        fill(140,100,0);
+        rect(x+160,y+250,80,10);
+        rect(x+195,y+260,10,140);
+        
+        //eyes
+      if (this.alive){
+        fill(0);
+        circle(x+190,y+175,8);
+        circle(x+210,y+175,8);
+      }
+      else if (!this.alive){
+        stroke(255);
+        fill(0);
+        line(x+185,y+175,x+195,y+165);
+        line(x+195,y+175,x+185,y+165);
+        line(x+215,y+175,x+225,y+165);
+        line(x+225,y+175,x+215,y+165);
+        stroke(0);
+      }
+        
+      }
+      
       //eyes
-      if (this.alive == true) {
+      if ((this.alive)&&(!this.species.equals("bird"))){
         fill(0);
         circle(x+175,y+175,10);
         circle(x+225,y+175,10);
       }
-      else {
+      else if ((!this.alive)&&(!this.species.equals("bird"))){
         stroke(255);
         fill(0);
         line(x+175,y+175,x+185,y+165);
