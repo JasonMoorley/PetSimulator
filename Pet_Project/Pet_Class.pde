@@ -168,10 +168,6 @@ class Pet{
       
       else if(this.species.equals("bird")){
         noStroke();
-      
-        
-        
-        
         
         //legs
         stroke(220,220,0);
@@ -205,32 +201,22 @@ class Pet{
         fill(140,100,0);
         rect(x+160,y+250,80,10);
         rect(x+195,y+260,10,140);
-        
-        //eyes
-      if (this.alive){
-        fill(0);
-        circle(x+190,y+175,8);
-        circle(x+210,y+175,8);
-      }
-      else if (!this.alive){
-        stroke(255);
-        fill(0);
-        line(x+185,y+175,x+195,y+165);
-        line(x+195,y+175,x+185,y+165);
-        line(x+215,y+175,x+225,y+165);
-        line(x+225,y+175,x+215,y+165);
-        stroke(0);
-      }
-        
-      }
-      
+        }
+
       //eyes
-      if ((this.alive)&&(!this.species.equals("bird"))){
+      if (this.alive == true) {
         fill(0);
         circle(x+175,y+175,10);
         circle(x+225,y+175,10);
+        
+        if (this.happiness <= 50) {
+          fill(0,0,255);
+          for (int i = 2; i < 8; i++) {
+            ellipse(x+175, (y+185)+(i*4), i*2, i*2);
+          }
+        }
       }
-      else if ((!this.alive)&&(!this.species.equals("bird"))){
+      else {
         stroke(255);
         fill(0);
         line(x+175,y+175,x+185,y+165);
