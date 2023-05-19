@@ -7,11 +7,12 @@ class Pet{
   int age;
   float happiness; //between 0 and 100, 100 being happiest
   float hunger; //between 0 and 100, 100 being not hungry at all
+  float health;
 
   boolean alive = true;
   boolean isPlaying = false;
   
-  Pet(String s, String n, String g, color f, color c, int a, float h, int hun){
+  Pet(String s, String n, String g, color f, color c, int a, float h, int hun, int heal){
     this.species = s;
     this.name = n;
     this.gender = g;
@@ -20,6 +21,7 @@ class Pet{
     this.age = a;
     this.happiness = h;
     this.hunger = hun;
+    this.health = heal;
 
   }
   
@@ -249,5 +251,12 @@ class Pet{
     float test = this.happiness/100.0;
     fill( (1-test)*255.0, test*255.0 ,0);
     rect(x+2,y + 212, this.happiness, 10);
+    
+    textSize(10);
+    fill(0,0,0);
+    text("Health", x, y + 240);
+    rect(x, y + 250, 104, 14);
+    fill( (1-this.health/100.0)*255.0, this.health/100.0*255.0 ,0);
+    rect(x+2,y + 252, this.health, 10);
   }
 }
