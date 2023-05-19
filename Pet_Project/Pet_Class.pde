@@ -67,7 +67,7 @@ class Pet{
   }
   
   void update(){
-    if (this.hunger <= 0) {
+    if (this.hunger <= 0 || this.health <= 0) {
       this.alive = false;
     }
     if (this.happiness >= 1){
@@ -82,8 +82,10 @@ class Pet{
     else {
       this.hunger = 0;
       this.happiness = 0;
+      this.health = 0;
     }
     if (this.isPlaying == true){
+      this.health -= 1;
       if (this.happiness <= 98){
         this.happiness += 2;
       }
