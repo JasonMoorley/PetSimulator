@@ -29,9 +29,11 @@ class Pet{
   void Feed(){
     if (this.hunger < 60){
      this.hunger += 20;
+     this.health += 1;
     }
     else if ((this.hunger >= 60)&&(this.hunger <= 90)){
       this.hunger += 10;
+      this.health += 1;
     }
     else {
       this.hunger = 100;
