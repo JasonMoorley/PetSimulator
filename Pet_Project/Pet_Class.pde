@@ -8,11 +8,13 @@ class Pet{
   float happiness; //between 0 and 100, 100 being happiest
   float hunger; //between 0 and 100, 100 being not hungry at all
   float health;
+  int minTemp;
+  int maxTemp;
 
   boolean alive = true;
   boolean isPlaying = false;
   
-  Pet(String s, String n, String g, color f, color c, int a, float h, int hun, int heal){
+  Pet(String s, String n, String g, color f, color c, int a, float h, int hun, int heal, int min, int max){
     this.species = s;
     this.name = n;
     this.gender = g;
@@ -22,7 +24,8 @@ class Pet{
     this.happiness = h;
     this.hunger = hun;
     this.health = heal;
-
+    this.minTemp = min;
+    this.maxTemp = max;
   }
   
   
@@ -37,8 +40,8 @@ class Pet{
     }
     else {
       this.hunger = 100;
+    }      
     }
-  }
   
   void Treat(){
     if (this.hunger <= 95){
@@ -78,9 +81,20 @@ class Pet{
     else{
      this.happiness = 0; 
     }
+    
     if (this.alive == true) {
       this.hunger -= random(0,0.1);
+      
+      for (int i = 0; i < 4; i++) {
+        if (temperatures[i] < this.minTemp) {
+          this.health -= random (0,0.5);
+        }
+        else if (temperatures[i] > this.maxTemp) {
+          this.health -= random (0,0.5);
+        }
+      }
     }
+    
     else {
       this.hunger = 0;
       this.happiness = 0;
