@@ -109,6 +109,7 @@ class Pet{
   
   //Method for drawing the pets
   void drawMe(float x, float y){ //top left x and y coordinates of the pet drawing
+    noStroke();
     if (this.species.equals("cat")){
       noStroke();
       
@@ -255,6 +256,7 @@ class Pet{
   
   //Draws the stats of the pet
   void drawStats(float x,float y){
+    noStroke();
     textSize(10);
     fill(0,0,0);
     text("Hunger", x, y + 160);
