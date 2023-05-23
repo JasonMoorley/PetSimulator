@@ -7,7 +7,7 @@ class Pet{
   int age;
   float happiness; //between 0 and 100, 100 being happiest
   float hunger; //between 0 and 100, 100 being not hungry at all
-  float health;
+  float health; //Overall health of the pet, 0 being dead and 100 being fed, happy, and correct temperature
   int minTemp;
   int maxTemp;
 
@@ -28,7 +28,7 @@ class Pet{
     this.maxTemp = max;
   }
   
-  
+  //Feeds the pet,increasing hunger and health
   void Feed(){
     if (this.hunger < 60){
      this.hunger += 20;
@@ -43,6 +43,7 @@ class Pet{
     }      
     }
   
+  //Gives the pet a treat, increasing happiness and slightly increasing hunger
   void Treat(){
     if (this.hunger <= 95){
       this.hunger += 5;
@@ -58,10 +59,12 @@ class Pet{
     }
   }
   
+  //Plays with the pet, in update() if the pet is playing, their happiness goes up
   void Play(){
     this.isPlaying = !this.isPlaying;
   }
   
+  //Talk with the pet to increase their happiness
   void Talk(){
     if (this.happiness <= 85){
        this.happiness += 15 ;
@@ -71,6 +74,7 @@ class Pet{
     }
   }
   
+  //Updates the pets stats every frame, hunger and happiness naturally go down
   void update(){
     if (this.hunger <= 0 || this.health <= 0) {
       this.alive = false;
@@ -81,20 +85,12 @@ class Pet{
     else{
      this.happiness = 0; 
     }
-    
+    if(this.hunger < 50){
+      this.health -= 2;
+    }
     if (this.alive == true) {
       this.hunger -= random(0,0.1);
-      
-      for (int i = 0; i < 4; i++) {
-        if (temperatures[i] < this.minTemp) {
-          this.health -= random (0,0.5);
-        }
-        else if (temperatures[i] > this.maxTemp) {
-          this.health -= random (0,0.5);
-        }
-      }
     }
-    
     else {
       this.hunger = 0;
       this.happiness = 0;
@@ -111,6 +107,7 @@ class Pet{
     }
   }
   
+  //Method for drawing the pets
   void drawMe(float x, float y){ //top left x and y coordinates of the pet drawing
     if (this.species.equals("cat")){
       noStroke();
@@ -229,6 +226,7 @@ class Pet{
         circle(x+175,y+175,10);
         circle(x+225,y+175,10);
         
+        noStroke();
         if (this.happiness <= 50) {
           fill(0,0,255);
           for (int i = 2; i < 8; i++) {
@@ -248,12 +246,14 @@ class Pet{
     
   }
   
+  //Draws the name of the pet at the top
   void drawName(float x, float y){
    fill(0);
    textSize(15);
    text(this.name,x,y+120); 
   }
   
+  //Draws the stats of the pet
   void drawStats(float x,float y){
     textSize(10);
     fill(0,0,0);
